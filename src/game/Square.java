@@ -26,4 +26,16 @@ public class Square {
 
     @Override
     public String toString() { return Character.toString(this.getLetter()) + Integer.toString(this.rank); }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other instanceof Square)
+            return ((Square) other).rank == this.rank && ((Square) other).file == this.file;
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return 31 * rank + file;
+    }
 }
